@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <title>CyberClass - Registro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Registro de Alumnos</h2>
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="codigo">Codigo</label>
+      <input type="codigo" class="form-control" id="codigo" placeholder="Ingrese Codigo" name="codigo">
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="nombre" class="form-control" id="nombre" placeholder="Ingrese Nombre" name="nombre">
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input type="apellido" class="form-control" id="apellido" placeholder="Ingrese Apellido" name="apellido">
+    </div>
+    
+    <div class="form-group">
+		   <label for="carrera">Carrera</label>
+		   <select id="carrera" class="form-control" th:field="*{cod_carre}">
+		      <option th:each="c : ${lstCarrera}" 
+		          th:value="${c.cod_carre}" th:text="${c.nom_carre}">
+		   </select>
+	</div>
+	
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input type="dni" class="form-control" id="dni" placeholder="Ingrese DNI" name="dni">
+    </div>
+    <div class="form-group">
+      <label for="correo">Correo</label>
+      <input type="correo" class="form-control" id="correo" placeholder="Ingrese Correo" name="correo">
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <button type="submit" class="btn btn-info">PDF</button>
+    <button type="submit" class="btn btn-primary">Grafico</button>
+  </form>
+</div>
+
+</body>
+</html>

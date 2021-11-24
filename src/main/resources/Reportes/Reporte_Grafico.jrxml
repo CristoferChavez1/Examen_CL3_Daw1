@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4b76bc2-748e-478f-8a22-1e0d5e971fa5">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[dGJfYWx1bW5vICwxNSwxNSxkZjQ1Y2FkNC01NjA4LTQ2YjYtYWM4MC1kMDM1Njc0MzM3YTU7dGJf
+Y2FycmVyYSAsMTE5LDE1LGZkMDgxNzdjLTRhZGItNDdkYy05YWRhLTE1MjE2MThlNTNjOTs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Examen_03_Alumnos"/>
+	<queryString language="SQL">
+		<![CDATA[select c.nom_carre as Carrera,
+count(a.cod_carre) as Cantidad_Alumnos
+from tb_alumno a join tb_carrera c
+on a.cod_carre=c.cod_carre
+group by a.cod_carre]]>
+	</queryString>
+	<field name="Carrera" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Carrera"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_carrera"/>
+	</field>
+	<field name="Cantidad_Alumnos" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Cantidad_Alumnos"/>
+	</field>
+	<group name="Carrera">
+		<groupExpression><![CDATA[$F{Carrera}]]></groupExpression>
+	</group>
+	<group name="Cantidad_Alumnos">
+		<groupExpression><![CDATA[$F{Cantidad_Alumnos}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="400" height="42" uuid="bf9084fe-d5f4-4bd2-8a7e-cacfb14611da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="19"/>
+				</textElement>
+				<text><![CDATA[Reporte  Alumnos por Carrera    ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="20" width="800" height="33" forecolor="rgba(212, 87, 85, 0.0)" backcolor="#1956A6" uuid="039b4264-d84e-4e51-a6a4-3e6d05da8f6d"/>
+			</rectangle>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="21" width="160" height="30" uuid="0e658e68-82b2-4653-8f9e-056aef10dce8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="690" y="21" width="100" height="30" uuid="cde570b8-2fd0-4ce3-a37f-7032aa0ff22f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="421" splitType="Stretch">
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="70" width="790" height="351" uuid="38a8b56b-d953-4a03-9b67-31ca8b3d3b5e"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{Carrera}]]></keyExpression>
+					<valueExpression><![CDATA[$F{Cantidad_Alumnos}]]></valueExpression>
+					<labelExpression><![CDATA[$F{Cantidad_Alumnos}.toString()]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<staticText>
+				<reportElement x="321" y="20" width="161" height="30" uuid="637cb00d-7641-483d-a9d2-5cd8a076c2fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total de Alumnos ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

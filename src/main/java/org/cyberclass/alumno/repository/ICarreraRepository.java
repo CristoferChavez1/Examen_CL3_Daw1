@@ -2,8 +2,11 @@ package org.cyberclass.alumno.repository;
 
 import org.cyberclass.alumno.model.Carrera;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ICarreraRpository extends JpaRepository<Carrera, Integer>{
+@Repository
+public interface ICarreraRepository extends JpaRepository<Carrera, Integer>{
+	
+	//crud....
 
-	//Crud.....
 }

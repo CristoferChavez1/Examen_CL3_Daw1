@@ -29,7 +29,7 @@
     
     <div class="form-group">
 		   <label for="carrera">Carrera</label>
-		   <select id="carrera" class="form-control" th:field="*{cod_carre}">
+		   <select id="carrera" class="form-control" th:field="*{codCarrera}">
 		      <option th:each="c : ${lstCarrera}" 
 		          th:value="${c.cod_carre}" th:text="${c.nom_carre}">
 		   </select>
@@ -44,8 +44,8 @@
       <input type="correo" class="form-control" id="correo" placeholder="Ingrese Correo" name="correo">
     </div>
     <button type="submit" class="btn btn-primary">Registrar</button>
-    <button type="submit" class="btn btn-info">PDF</button>
-    <button type="submit" class="btn btn-primary">Grafico</button>
+    <button href="/PDF" target="_blank" class="btn btn-info">PDF</button>
+    <button href="/Reporte_Grafico" target="_blank" class="btn btn-primary">PDF Grafico</button>
   </form>
 </div>
 
